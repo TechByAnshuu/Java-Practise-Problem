@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GitHub — Mock Clone</title>
+  <style>
+    /* Simple reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height: 100%; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#222; background:#f6f8fa; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Top header */
+    .topbar {
+      display:flex; align-items:center; gap:16px;
+      padding:12px 20px;
+      background: #0d1117; color: #c9d1d9;
+      position:sticky; top:0; z-index:10;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:600; }
+    .brand .logo {
+      width:34px; height:34px; background:linear-gradient(135deg,#58a6ff,#1f6feb);
+      border-radius:6px; display:inline-block;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
+    .search {
+      flex:1; max-width:680px; display:flex; align-items:center;
+    }
+    .search input {
+      width:100%; padding:8px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.08);
+      background:#0d1117; color:#e6edf3;
+    }
+    .top-actions { display:flex; gap:10px; align-items:center; }
+    .btn {
+      padding:8px 12px; border-radius:6px; font-weight:600; cursor:pointer; border:1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      color:#c9d1d9;
+    }
+
+    /* Layout */
+    .container { display:grid; grid-template-columns: 260px 1fr; gap:20px; padding:20px; max-width:1200px; margin:20px auto; }
+    .sidebar {
+      background:#fff; border-radius:8px; padding:16px; box-shadow: 0 6px 20px rgba(10,10,10,0.04);
+    }
+    .sidebar h3 { font-size:13px; color:#57606a; margin-bottom:12px; }
+    .nav-list { display:flex; flex-direction:column; gap:8px; }
+    .nav-item { padding:8px 10px; border-radius:6px; color:#24292f; display:flex; justify-content:space-between; align-items:center; }
+    .nav-item:hover { background:#f6f8fa; cursor:pointer; }
+
+    .main {
+      min-height: 60vh;
+      display:flex; flex-direction:column; gap:16px;
+    }
+
+    .repo-controls {
+      display:flex; justify-content:space-between; align-items:center;
+      gap:12px;
+    }
+    .repo-grid { display:grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+
+    .repo-card {
+      background:#fff; padding:14px; border-radius:8px; box-shadow: 0 6px 18px rgba(11,12,14,0.04);
+      border:1px solid rgba(0,0,0,0.04);
+    }
+    .repo-header { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:6px; }
+    .repo-name { font-weight:700; color:#0b1220; }
+    .repo-desc { color:#44546f; font-size:13px; margin:8px 0 12px; min-height:36px; }
+    .repo-meta { display:flex; gap:12px; font-size:13px; color:#6b778c; align-items:center; }
+
+    /* small screen */
+    @media (max-width:880px) {
+      .container { grid-template-columns: 1fr; padding:12px; margin:0; }
+      .search { display:none; } /* mimic compact header */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top navigation -->
+  <header class="topbar" role="banner">
+    <div class="brand" title="MockHub">
+      <span class="logo" aria-hidden="true"></span>
+      <span style="font-size:16px">MockHub</span>
+    </div>
+
+    <div class="search" role="search">
+      <input id="globalSearch" placeholder="Search repositories, users, code..." aria-label="Search" />
+    </div>
+
+    <div class="top-actions">
+      <button class="btn" id="newRepoBtn">New</button>
+      <div style="width:36px;height:36px;border-radius:50%;background:#8b5cf6;display:flex;align-items:center;justify-content:center;font-weight:700;color:white">A</div>
+    </div>
+  </header>
+
+  <!-- Page layout -->
+  <main class="container" role="main">
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Sidebar">
+      <h3>Repositories</h3>
+      <div class="nav-list" id="repoListNav">
+        <!-- populated by JS -->
+      </div>
+
+      <hr style="margin:12px 0; border:0; border-top:1px solid #eef2f7">
+      <h3>Explore</h3>
+      <div class="nav-list">
+        <div class="nav-item">Trending</div>
+        <div class="nav-item">Topics</div>
+        <div class="nav-item">Collections</div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <section class="main">
+      <div class="repo-controls">
+        <div>
+          <h2 style="font-size:18px">Your repositories</h2>
+          <div style="color:#586069; font-size:13px; margin-top:4px">Quick list of repositories you recently worked on</div>
+        </div>
+
+        <div style="display:flex; gap:8px; align-items:center;">
+          <select id="languageFilter" style="padding:8px;border-radius:6px;border:1px solid #dfe3e8;">
+            <option value="">All languages</option>
+            <option>JavaScript</option>
+            <option>Python</option>
+            <option>HTML</option>
+            <option>Java</option>
+            <option>Go</option>
+          </select>
+          <button class="btn" id="refreshBtn">Refresh</button>
+        </div>
+      </div>
+
+      <!-- Repo cards -->
+      <div class="repo-grid" id="repoGrid" aria-live="polite">
+        <!-- cards inserted by JS -->
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Sample repo data (replace or extend)
+    const repos = [
+      { name: "inkdrop", owner: "ansh", desc: "Vintage-themed digital library UI (React)", lang: "JavaScript", stars: 124, updated: "2025-07-16" },
+      { name: "devops-labs", owner: "ansh", desc: "Hands-on AWS & DevOps labs and scripts", lang: "Shell", stars: 87, updated: "2025-10-03" },
+      { name: "viva-dsa", owner: "ansh", desc: "DSA viva question bank with C solutions", lang: "C", stars: 30, updated: "2025-07-17" },
+      { name: "portfolio", owner: "ansh", desc: "Personal portfolio and project showcase", lang: "HTML", stars: 56, updated: "2025-05-10" },
+      { name: "kali-centos-notes", owner: "ansh", desc: "Notes comparing Kali and CentOS for college labs", lang: "Markdown", stars: 12, updated: "2025-11-20" }
+    ];
+
+    const repoGrid = document.getElementById('repoGrid');
+    const repoListNav = document.getElementById('repoListNav');
+    const languageFilter = document.getElementById('languageFilter');
+    const globalSearch = document.getElementById('globalSearch');
+
+    function renderRepos(list) {
+      repoGrid.innerHTML = '';
+      repoListNav.innerHTML = '';
+      list.forEach(r => {
+        // nav entry
+        const nav = document.createElement('div');
+        nav.className = 'nav-item';
+        nav.innerHTML = `<span>${r.name}</span><small style="color:#8b98ac">${r.lang}</small>`;
+        nav.onclick = () => alert('Open repo: ' + r.name);
+        repoListNav.appendChild(nav);
+
+        // card
+        const card = document.createElement('article');
+        card.className = 'repo-card';
+        card.innerHTML = `
+          <div class="repo-header">
+            <div>
+              <div class="repo-name">${r.owner} / ${r.name}</div>
+              <div style="font-size:12px;color:#6b778c;margin-top:6px">${r.desc}</div>
+            </div>
+            <div>
+              <button class="btn" style="font-weight:600;padding:6px 10px" onclick="starRepo(event,'${r.name}')">★ ${r.stars}</button>
+            </div>
+          </div>
+          <div class="repo-meta">
+            <div>${r.lang}</div>
+            <div>•</div>
+            <div>Updated ${r.updated}</div>
+          </div>
+        `;
+        repoGrid.appendChild(card);
+      });
+
+      if (list.length === 0) {
+        repoGrid.innerHTML = `<div style="padding:20px;background:#fff;border-radius:8px">No repositories match your filters.</div>`;
+      }
+    }
+
+    function starRepo(e, name) {
+      e.stopPropagation();
+      alert('Starred ' + name + ' (mock)');
+    }
+
+    // Filtering function
+    function filterAndRender() {
+      const lang = languageFilter.value.toLowerCase();
+      const q = globalSearch.value.trim().toLowerCase();
+      const filtered = repos.filter(r => {
+        const matchesLang = !lang || (r.lang && r.lang.toLowerCase().includes(lang));
+        const matchesQ = !q || (r.name + ' ' + r.desc + ' ' + r.owner).toLowerCase().includes(q);
+        return matchesLang && matchesQ;
+      });
+      renderRepos(filtered);
+    }
+
+    // initial
+    renderRepos(repos);
+
+    // listeners
+    languageFilter.addEventListener('change', filterAndRender);
+    globalSearch.addEventListener('input', () => {
+      // small debounce
+      clearTimeout(globalSearch._t);
+      globalSearch._t = setTimeout(filterAndRender, 180);
+    });
+
+    document.getElementById('refreshBtn').addEventListener('click', () => {
+      // In a real app you'd fetch; here we'll shuffle updated date for demo.
+      repos.forEach(r => r.updated = new Date().toISOString().slice(0,10));
+      renderRepos(repos);
+    });
+
+    document.getElementById('newRepoBtn').addEventListener('click', () => {
+      const name = prompt('New repo name:');
+      if (name) {
+        repos.unshift({ name, owner: 'you', desc: 'A new repository', lang: 'HTML', stars:0, updated: new Date().toISOString().slice(0,10) });
+        renderRepos(repos);
+      }
+    });
+  </script>
+</body>
+</html>
