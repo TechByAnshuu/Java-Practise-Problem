@@ -1,0 +1,97 @@
+2025-12-07T14:51:10.393Z [INFO] Initializing project configuration...
+2025-12-07T14:51:10.394Z [INFO] Project c:\Files\Java Practise Problem is a maven project, try to get java version from pom.xml
+2025-12-07T14:51:10.396Z [INFO] Project java version: 21
+2025-12-07T14:51:10.397Z [INFO] Maven project detected.
+2025-12-07T14:51:10.397Z [INFO] Build tool type: mvn
+2025-12-07T14:51:10.563Z [INFO] [Environment] Running command (Java 21): java -version
+openjdk version "21.0.8" 2025-07-15 LTS
+OpenJDK Runtime Environment Microsoft-11933218 (build 21.0.8+9-LTS)
+OpenJDK 64-Bit Server VM Microsoft-11933218 (build 21.0.8+9-LTS, mixed mode, sharing)
+2025-12-07T14:51:10.721Z [INFO] [JdkEnvironment] Got real Java version: 21.0.8
+2025-12-07T14:51:10.743Z [INFO] JDK: {
+  "name": "java",
+  "path": "C:\\Users\\Ansh Mishra\\.jdk\\jdk-21.0.8\\bin",
+  "version": "21"
+}
+2025-12-07T14:51:10.774Z [INFO] [Environment] Running command (Java 21): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Program Files\apache-maven-3.9.11
+Java version: 21.0.8, vendor: Microsoft, runtime: C:\Users\Ansh Mishra\.jdk\jdk-21.0.8
+Default locale: en_IN, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2025-12-07T14:51:11.400Z [INFO] Real build tool version: 3.9.11
+2025-12-07T14:51:11.401Z [INFO] Build tool: {
+  "name": "mvn",
+  "path": "C:\\Program Files\\apache-maven-3.9.11\\bin",
+  "version": "3.9.11"
+}
+2025-12-07T14:51:11.401Z [INFO] Project config: {
+  "buildTool": {
+    "path": "C:\\Program Files\\apache-maven-3.9.11\\bin",
+    "name": "mvn",
+    "version": "3.9.11"
+  },
+  "jdk": {
+    "path": "C:\\Users\\Ansh Mishra\\.jdk\\jdk-21.0.8\\bin",
+    "name": "java",
+    "version": "21"
+  },
+  "name": "Java Practise Problem",
+  "dir": "c:\\Files\\Java Practise Problem"
+}
+2025-12-07T14:51:11.402Z [INFO] Project configuration initialized: {
+  "buildTool": {
+    "path": "C:\\Program Files\\apache-maven-3.9.11\\bin",
+    "name": "mvn",
+    "version": "3.9.11"
+  },
+  "jdk": {
+    "path": "C:\\Users\\Ansh Mishra\\.jdk\\jdk-21.0.8\\bin",
+    "name": "java",
+    "version": "21"
+  },
+  "name": "Java Practise Problem",
+  "dir": "c:\\Files\\Java Practise Problem"
+}
+2025-12-07T14:51:11.402Z [INFO] Initializing upgrade goals...
+2025-12-07T14:51:11.409Z [INFO] [Environment] Running command (Java 21): mvn dependency:tree -B
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.techbyanshuu:java-practise-problem >---------------
+[INFO] Building java-practise-problem 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.7.0:tree (default-cli) @ java-practise-problem ---
+[INFO] com.techbyanshuu:java-practise-problem:jar:1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.437 s
+[INFO] Finished at: 2025-12-07T20:21:16+05:30
+[INFO] ------------------------------------------------------------------------
+2025-12-07T14:51:16.755Z [INFO] [MavenBuildTool] Successfully got dependency tree of c:\Files\Java Practise Problem
+2025-12-07T14:51:16.755Z [INFO] [MavenBuildTool] Getting Java version of c:\Files\Java Practise Problem from pom.xml
+2025-12-07T14:51:16.756Z [INFO] [MavenBuildTool] Searching for pom.xml files in c:\Files\Java Practise Problem
+2025-12-07T14:51:16.756Z [INFO] [MavenBuildTool] Getting all module coordinates of c:\Files\Java Practise Problem
+2025-12-07T14:51:16.757Z [INFO] [MavenBuildTool] Getting effective POMs of c:\Files\Java Practise Problem
+2025-12-07T14:51:16.757Z [INFO] [Environment] Running command (Java 21): mvn help:effective-pom -Doutput=effective-pom-b1f86c28-6b0b-4919-9cf8-8dfb72c6b44b.log
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.techbyanshuu:java-practise-problem >---------------
+[INFO] Building java-practise-problem 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ java-practise-problem ---
+[INFO] Effective-POM written to: c:\Files\Java Practise Problem\effective-pom-b1f86c28-6b0b-4919-9cf8-8dfb72c6b44b.log
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.250 s
+[INFO] Finished at: 2025-12-07T20:21:20+05:30
+[INFO] ------------------------------------------------------------------------
+2025-12-07T14:51:20.540Z [INFO] [MavenBuildTool] Found pom.xml files: c:\Files\Java Practise Problem\pom.xml
+2025-12-07T14:51:20.542Z [INFO] [MavenBuildTool] Java version found in c:\Files\Java Practise Problem\pom.xml: 21
+2025-12-07T14:51:20.542Z [INFO] Source Java version: 21
+2025-12-07T14:51:20.543Z [ERROR] Failed to prepare project configuration or init upgrade options: No upgrade goals set. Please set at least one upgrade goal, e.g. upgrade to Java 21, upgrade Spring Boot to 3.2.12, etc..

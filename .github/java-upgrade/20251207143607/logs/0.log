@@ -1,0 +1,111 @@
+2025-12-07T14:36:07.609Z [INFO] ----------------------invoke generate_upgrade_plan----------------------
+2025-12-07T14:36:07.610Z [INFO] [Tool.invoke]({name: generate_upgrade_plan, input: {
+  "projectPath": "c:\\Files\\Java Practise Problem",
+  "targetJavaVersion": "21",
+  "jdkPath": "",
+  "buildToolPath": "",
+  "targetDependencies": [],
+  "useCurrentBranch": false,
+  "guidelines": ""
+}}).
+2025-12-07T14:36:07.611Z [INFO] [Plan.tryStartTask]({tool:generate_upgrade_plan, nextTask:{type:undefined, tool:undefined}}
+2025-12-07T14:36:07.612Z [INFO] [Plan.tryStartTask]: no next task, create new one.
+2025-12-07T14:36:07.613Z [INFO] [Plan.createTaskAtStart]({tool: generate_upgrade_plan, input: {
+  "projectPath": "c:\\Files\\Java Practise Problem",
+  "targetJavaVersion": "21",
+  "jdkPath": "",
+  "buildToolPath": "",
+  "targetDependencies": [],
+  "useCurrentBranch": false,
+  "guidelines": "",
+  "sessionId": "20251207143607"
+}}).
+2025-12-07T14:36:07.637Z [INFO] [Plan.tryStartTask]: starting task generatePlan
+2025-12-07T14:36:07.638Z [INFO] [Task.start](): Starting task generatePlan
+2025-12-07T14:36:07.639Z [INFO] [Task.start](1): Started task generatePlan
+2025-12-07T14:36:07.653Z [INFO] [Tool.invoke] validate GitHub Copilot license.
+2025-12-07T14:36:07.654Z [INFO] [Tool.invoke] do pre-invoke.
+2025-12-07T14:36:07.654Z [INFO] [Tool.invoke] do invoke.
+2025-12-07T14:36:07.759Z [INFO] [Task.start](): Starting task generatePlan
+2025-12-07T14:36:07.761Z [INFO] [Task.start](1.1): Started task generatePlan
+2025-12-07T14:36:07.762Z [INFO] ---------------------prepare install_jdk----------------------
+2025-12-07T14:36:07.762Z [INFO] [Tool.prepareInvocation]({name: install_jdk, input: {
+  "sessionId": "20251207143607",
+  "version": "21",
+  "dest": "C:\\Users\\Ansh Mishra\\.jdk",
+  "reason": "JDK 21 is required to build the project, but not found on the machine."
+}}).
+2025-12-07T14:36:07.762Z [INFO] [Tool.prepareInvocation] do prepare invocation.
+2025-12-07T14:36:08.856Z [INFO] [Tool.prepareInvocation]({result: {
+  "invocationMessage": "Download and install JDK",
+  "confirmationMessages": {
+    "title": "Download and install JDK",
+    "message": "\nJDK 21 is required to build the project, but not found on the machine.\nThis tool will download and install JDK 21 from Microsoft with below settings.\n- **Version**: 21\n- **Vendor**: Microsoft\n- **Url**: https://aka.ms/download-jdk/microsoft-jdk-21.0.8-windows-x64.zip\n- **Destination**: `C:\\Users\\Ansh Mishra\\.jdk`\n- **Checksum**: SHA256: 6ecfa864b95a45cde05d92351edf06d33b778669499b485bb8414145704fae0a\n- **Signature**: https://aka.ms/download-jdk/microsoft-jdk-21.0.8-windows-x64.zip.sig\n- **Public Key**: http://aka.ms/microsoft_jdk_public_key\n"
+  }
+}}).
+2025-12-07T14:36:08.857Z [INFO] ----------------------prepared install_jdk----------------------
+2025-12-07T14:37:44.797Z [INFO] ----------------------invoke install_jdk----------------------
+2025-12-07T14:37:44.798Z [INFO] [Tool.invoke]({name: install_jdk, input: {
+  "sessionId": "20251207143607",
+  "version": "21",
+  "dest": "C:\\Users\\Ansh Mishra\\.jdk",
+  "reason": "JDK 21 is required to build the project, but not found on the machine."
+}}).
+2025-12-07T14:37:44.799Z [INFO] [Plan.tryStartTask]({tool:install_jdk, nextTask:{type:undefined, tool:undefined}}
+2025-12-07T14:37:44.799Z [INFO] [Plan.tryStartTask]: no next task, create new one.
+2025-12-07T14:37:44.800Z [INFO] [Plan.createTaskAtStart]({tool: install_jdk, input: {
+  "sessionId": "20251207143607",
+  "version": "21",
+  "dest": "C:\\Users\\Ansh Mishra\\.jdk",
+  "reason": "JDK 21 is required to build the project, but not found on the machine."
+}}).
+2025-12-07T14:37:44.802Z [INFO] [Plan.tryStartTask]: starting task detached
+2025-12-07T14:37:44.802Z [INFO] [Task.start](): Starting task detached
+2025-12-07T14:37:44.803Z [INFO] [Task.start](): Started task detached
+2025-12-07T14:37:44.804Z [INFO] [Tool.invoke] validate GitHub Copilot license.
+2025-12-07T14:37:44.804Z [INFO] [Tool.invoke] do pre-invoke.
+2025-12-07T14:37:44.805Z [INFO] [Tool.invoke] do invoke.
+2025-12-07T14:38:20.181Z [INFO] [Tool.invoke]({result: {
+  "result": {
+    "name": "java",
+    "path": "C:\\Users\\Ansh Mishra\\.jdk\\jdk-21.0.8\\bin",
+    "version": "21.0.8"
+  },
+  "message": "JDK 21 is installed at C:\\Users\\Ansh Mishra\\.jdk\\jdk-21.0.8\\bin",
+  "telemetry": {
+    "tool": "JDK",
+    "version": "21"
+  }
+}}).
+2025-12-07T14:38:20.182Z [INFO] [Plan.completeTask](task:{id:<unknown>, type:detached}, result:{
+  "result": {
+    "name": "java",
+    "path": "C:\\Users\\Ansh Mishra\\.jdk\\jdk-21.0.8\\bin",
+    "version": "21.0.8"
+  },
+  "message": "JDK 21 is installed at C:\\Users\\Ansh Mishra\\.jdk\\jdk-21.0.8\\bin",
+  "telemetry": {
+    "tool": "JDK",
+    "version": "21"
+  }
+})
+2025-12-07T14:38:20.183Z [INFO] [Task.complete](): Completing task detached
+2025-12-07T14:38:20.184Z [INFO] [Task.complete](): Completed task detached
+2025-12-07T14:38:20.184Z [INFO] [Plan.completeTask]: no next task, create new one.
+2025-12-07T14:38:20.185Z [INFO] [Plan.completeTask]: getting next task.
+2025-12-07T14:38:20.185Z [INFO] [Plan.getNextTaskAtComplete]({task: [Detached] install_jdk, result: {
+  "name": "java",
+  "path": "C:\\Users\\Ansh Mishra\\.jdk\\jdk-21.0.8\\bin",
+  "version": "21.0.8"
+}}).
+2025-12-07T14:38:20.186Z [INFO] [Plan.completeTask]: next task is {type:undefined, expectedToolName:undefined}.
+2025-12-07T14:38:20.186Z [INFO] [Plan.completeTask]: next task has no instruction. Just return JDK 21 is installed at C:\Users\Ansh Mishra\.jdk\jdk-21.0.8\bin
+2025-12-07T14:38:20.186Z [INFO] [Tool.invoke]({message: JDK 21 is installed at C:\Users\Ansh Mishra\.jdk\jdk-21.0.8\bin
+}).
+2025-12-07T14:38:20.187Z [INFO] ----------------------invoked install_jdk----------------------
+2025-12-07T14:38:20.219Z [INFO] [Task.complete](1.1): Completing task generatePlan
+2025-12-07T14:38:20.236Z [INFO] [Task.complete](1.1): Completed task generatePlan
+2025-12-07T14:39:04.513Z [ERROR] [Tool.invoke] error occurs when invoking tool generate_upgrade_plan: UserError: Failed to prepare project configuration or init upgrade options: No upgrade goals set. Please set at least one upgrade goal, e.g. upgrade to Java 21, upgrade Spring Boot to 3.2.12, etc.. Please check the project configuration and try again..
+2025-12-07T14:39:04.514Z [INFO] [Task.complete](1): Completing task generatePlan
+2025-12-07T14:39:04.514Z [INFO] ----------------------invoked generate_upgrade_plan----------------------
+2025-12-07T14:39:04.515Z [INFO] [Task.complete](1): Completed task generatePlan

@@ -1,0 +1,117 @@
+2025-12-07T15:09:04.174Z [INFO] ----------------------invoke build_java_project----------------------
+2025-12-07T15:09:04.175Z [INFO] [Tool.invoke]({name: build_java_project, input: {
+  "projectPath": "c:\\Files\\Java Practise Problem",
+  "codeChangesMessage": "Clean up GuessTheNumber.java; ensure project compiles under Java 21 (pom sets release 21)",
+  "codeChangesDetails": "- Fixed GuessTheNumber.java\n- Ensured only one working GuessTheNumber class exists\n"
+}}).
+2025-12-07T15:09:04.175Z [INFO] [Task.start](): Starting task toolCall
+2025-12-07T15:09:04.176Z [INFO] [Task.start](): Started task toolCall
+2025-12-07T15:09:04.177Z [INFO] [Tool.invoke] validate GitHub Copilot license.
+2025-12-07T15:09:04.177Z [INFO] [Tool.invoke] do pre-invoke.
+2025-12-07T15:09:04.180Z [INFO] Project c:\Files\Java Practise Problem is a maven project, try to get java version from pom.xml
+2025-12-07T15:09:04.183Z [INFO] Project java version: 21
+2025-12-07T15:09:04.183Z [INFO] Maven project detected.
+2025-12-07T15:09:04.184Z [INFO] Build tool type: mvn
+2025-12-07T15:09:04.300Z [INFO] [Environment] Running command (Java 21): java -version
+openjdk version "21.0.8" 2025-07-15 LTS
+OpenJDK Runtime Environment Microsoft-11933218 (build 21.0.8+9-LTS)
+OpenJDK 64-Bit Server VM Microsoft-11933218 (build 21.0.8+9-LTS, mixed mode, sharing)
+2025-12-07T15:09:04.446Z [INFO] [JdkEnvironment] Got real Java version: 21.0.8
+2025-12-07T15:09:04.446Z [INFO] JDK: {
+  "name": "java",
+  "path": "C:\\Users\\Ansh Mishra\\.jdk\\jdk-21.0.8\\bin",
+  "version": "21"
+}
+2025-12-07T15:09:04.458Z [INFO] [Environment] Running command (Java 21): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Program Files\apache-maven-3.9.11
+Java version: 21.0.8, vendor: Microsoft, runtime: C:\Users\Ansh Mishra\.jdk\jdk-21.0.8
+Default locale: en_IN, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2025-12-07T15:09:05.127Z [INFO] Real build tool version: 3.9.11
+2025-12-07T15:09:05.128Z [INFO] Build tool: {
+  "name": "mvn",
+  "path": "C:\\Program Files\\apache-maven-3.9.11\\bin",
+  "version": "3.9.11"
+}
+2025-12-07T15:09:05.129Z [INFO] Project config: {
+  "buildTool": {
+    "path": "C:\\Program Files\\apache-maven-3.9.11\\bin",
+    "name": "mvn",
+    "version": "3.9.11"
+  },
+  "jdk": {
+    "path": "C:\\Users\\Ansh Mishra\\.jdk\\jdk-21.0.8\\bin",
+    "name": "java",
+    "version": "21"
+  },
+  "name": "Java Practise Problem",
+  "dir": "c:\\Files\\Java Practise Problem"
+}
+2025-12-07T15:09:05.136Z [INFO] [Tool.invoke] do invoke.
+2025-12-07T15:09:05.136Z [INFO] [BaseBuildTool] Firing config modified event for mvn, sleeping for 5 seconds
+2025-12-07T15:09:05.137Z [INFO] [Environment] Running command (Java 21): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Program Files\apache-maven-3.9.11
+Java version: 21.0.8, vendor: Microsoft, runtime: C:\Users\Ansh Mishra\.jdk\jdk-21.0.8
+Default locale: en_IN, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2025-12-07T15:09:05.759Z [INFO] [BaseBuildTool] New version of mvn: 3.9.11 -> 3.9.11
+2025-12-07T15:09:05.760Z [INFO] [MavenBuildTool] Getting Java version of c:\Files\Java Practise Problem from pom.xml
+2025-12-07T15:09:05.760Z [INFO] [MavenBuildTool] Searching for pom.xml files in c:\Files\Java Practise Problem
+2025-12-07T15:09:05.761Z [INFO] [MavenBuildTool] Getting all module coordinates of c:\Files\Java Practise Problem
+2025-12-07T15:09:05.762Z [INFO] [MavenBuildTool] Getting effective POMs of c:\Files\Java Practise Problem
+2025-12-07T15:09:05.762Z [INFO] [Environment] Running command (Java 21): mvn help:effective-pom -Doutput=effective-pom-1ebbeb6f-7be0-4cd4-b522-78da3e6b3143.log
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.techbyanshuu:java-practise-problem >---------------
+[INFO] Building java-practise-problem 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ java-practise-problem ---
+[INFO] Effective-POM written to: c:\Files\Java Practise Problem\effective-pom-1ebbeb6f-7be0-4cd4-b522-78da3e6b3143.log
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.508 s
+[INFO] Finished at: 2025-12-07T20:39:10+05:30
+[INFO] ------------------------------------------------------------------------
+2025-12-07T15:09:10.092Z [INFO] [MavenBuildTool] Found pom.xml files: c:\Files\Java Practise Problem\pom.xml
+2025-12-07T15:09:10.094Z [INFO] [MavenBuildTool] Java version found in c:\Files\Java Practise Problem\pom.xml: 21
+2025-12-07T15:09:10.094Z [INFO] [BaseBuildTool] Notifying Java version/Config change: '21' || '21'
+2025-12-07T15:09:10.095Z [INFO] [Project Java Practise Problem]: Java version of project Java Practise Problem is changed.
+2025-12-07T15:09:10.096Z [INFO] [Project Java Practise Problem]: Java version of project Java Practise Problem is changed to '21' || '21'
+2025-12-07T15:09:10.096Z [INFO] [Project Java Practise Problem]: build tool config of project Java Practise Problem is modified.
+2025-12-07T15:09:10.096Z [INFO] [Project Java Practise Problem]: dependencies of project Java Practise Problem may be changed, resetting promise.
+2025-12-07T15:09:10.097Z [INFO] [MavenBuildTool] Getting build errors of c:\Files\Java Practise Problem using Maven
+2025-12-07T15:09:10.098Z [INFO] [Environment] Running command (Java 21): mvn clean test-compile -q -B -fn
+2025-12-07T15:09:14.743Z [INFO] [MavenBuildTool] parsing compilation errors.
+2025-12-07T15:09:14.743Z [INFO] [BaseBuildTool] Found 1 modules: .
+2025-12-07T15:09:14.748Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2025-12-07T15:09:14.748Z [INFO] [MavenBuildTool] Cleaning c:\Files\Java Practise Problem using Maven
+2025-12-07T15:09:14.749Z [INFO] [Environment] Running command (Java 21): mvn clean -q -B -fn
+2025-12-07T15:09:17.720Z [INFO] [Project Java Practise Problem]: Compilation errors of project Java Practise Problem is updated: 0 -> 0
+2025-12-07T15:09:17.721Z [INFO] Build succeeded! There are no build errors in the project.
+2025-12-07T15:09:17.722Z [INFO] [Tool.invoke]({result: {
+  "message": "Build succeeded! There are no build errors in the project.",
+  "result": {
+    "numOfJavaFiles": 10,
+    "numOfClassFiles": 5,
+    "modulesBuildResult": {
+      ".": {
+        "numOfJavaFiles": 10,
+        "numOfClassFiles": 5
+      }
+    },
+    "errors": [],
+    "command": "mvn clean test-compile -q -B -fn"
+  },
+  "telemetry": {
+    "result": "succeeded"
+  }
+}}).
+2025-12-07T15:09:17.722Z [INFO] [Task.complete](): Completing task toolCall
+2025-12-07T15:09:17.723Z [INFO] [Task.complete](): Completed task toolCall
+2025-12-07T15:09:17.723Z [INFO] [Tool.invoke]({message: Build succeeded! There are no build errors in the project.}).
+2025-12-07T15:09:17.724Z [INFO] ----------------------invoked build_java_project----------------------
