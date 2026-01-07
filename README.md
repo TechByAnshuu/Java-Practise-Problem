@@ -23,3 +23,6 @@ The goal of this repository is to:
 
 ## 📂 Repository Structure
 Problems are organized by topic for better readability and learning:
+git add *.java
+git commit -m "Add DSA problem"
+git push
