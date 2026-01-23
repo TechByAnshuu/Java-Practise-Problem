@@ -32,8 +32,6 @@
 // Explanation: It can be proved that there is no way to create a square field by removing fences.
  
 
-// Constraints:
-
 // 3 <= m, n <= 109
 // 1 <= hFences.length, vFences.length <= 600
 // 1 < hFences[i] < m
