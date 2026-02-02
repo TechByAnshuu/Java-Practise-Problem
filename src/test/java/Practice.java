@@ -9,21 +9,21 @@ public class Practice {
 
     // }
     // public static void main(String[] args){
-    //     Scanner sc = new Scanner(System.in);
-    //     float b = sc.nextFloat();
-    //     float a = sc.nextFloat();
-    //     System.out.println("Enter the number1: " + b);
-    //     System.out.println("Enter the number2: " + a);
+    //     float a = 1.5f;
+
+    //     float b = 2.5f;
+    //     System.out.println("Enter the number1: " + a);
+    //     System.out.println("Enter the number2: " + b);
     //     // float a = 1.4f;
     //     // float b = 7.5f;
     //     float p = a*b;
 
     //     System.out.println(" multiplied number: " + p  );
 
-    //     sc.close();
     // }
 
-        public static void main(String[] args){
+
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int a = 9;
         int b= 5;
@@ -33,12 +33,11 @@ public class Practice {
         }else{
             System.out.println(a = b);
         }
-
-        n8
     sc.close();
     }
 
-    
+
+
 }
 
 
