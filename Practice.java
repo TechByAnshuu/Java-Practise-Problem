@@ -23,24 +23,38 @@ public class Practice {
     //     sc.close();
     // }
 
-        public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int a = 9;
-        int b= 5;
-        int swap = sc.nextInt();
-        if(a>b){
-            System.out.println(b = a);
-        }else{
-            System.out.println(a = b);
-        }
+    //     public static void main(String[] args){
+    //     Scanner sc = new Scanner(System.in);
+    //     int a = 9;
+    //     int b= 5;
+    //     int swap = sc.nextInt();
+    //     if(a>b){
+    //         System.out.println(b = a);
+    //     }else{
+    //         System.out.println(a = b);
+    //     }
 
-        n8
-    sc.close();
+    //     
+    // sc.close();
+    // }
+
+
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int a =sc.nextInt();
+        if(a%2 == 0){
+            System.out.println("Even number: " + a );
+        }else{
+            System.out.println("Odd number: " + a );
+        }
+        sc.close();
+        
+
+
     }
 
     
 }
-
 
 
 

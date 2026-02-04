@@ -7,17 +7,23 @@ If the OR result is even (ends with 0 in binary → has trailing zero), return t
 
 If ALL OR results are odd (end with 1), return false.
 */
-class BitwiseOr {
-    public boolean hasTrailingZeros(int[] nums) {
-        int n = nums.length;
 
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (((nums[i] | nums[j]) & 1) == 0) {
-                    return true;
-                }
+public class BitwiseOr {
+
+    public static boolean hasTrailingZeros(int[] nums) {
+        for (int n : nums) {
+            if (n % 2 == 0) {
+                return true;
             }
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 3, 5, 9};
+
+        boolean result = hasTrailingZeros(nums);
+
+        System.out.println("Result: " + result);
     }
 }
