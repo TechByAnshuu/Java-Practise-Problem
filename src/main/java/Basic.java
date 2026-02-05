@@ -103,3 +103,9 @@ float     -   Stores fractional numbers. Sufficient for storing 6 to 7 decimal d
 double    -   Stores fractional numbers. Sufficient for storing 15 to 16 decimal digits
 boolean   -   Stores true or false values
 char	  -   Stores a single character/letter or ASCII values
+
+
+// POINTS ->> The last bit of all odd numbers is always 1, while for even numbers it’s 0. So, 
+//          when performing bitwise AND operation with 1, odd numbers give 1, and even numbers give 0.
+
+// Note: Bitwise operators are extremely fast and efficient because they operate directly at the binary level, making them significantly faster than arithmetic or logical operations.
