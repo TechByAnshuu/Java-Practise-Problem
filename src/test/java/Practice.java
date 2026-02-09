@@ -1,4 +1,6 @@
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Stack;
 public class Practice {
     // public static void main(String[] args){
     //     Scanner sc = new Scanner(System.in);
@@ -23,17 +25,28 @@ public class Practice {
     // }
 
 
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int a = 9;
-        int b= 5;
-        int swap = sc.nextInt();
-        if(a>b){
-            System.out.println(b = a);
-        }else{
-            System.out.println(a = b);
+    public static void main(String[] args) {
+        int[] arr = {4, 8, 2, 5, 1, 2};
+        int n = arr.length;
+
+        int[] result = new int[n];
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = n - 1; i >= 0; i--) {
+
+            // remove smaller or equal elements
+            while (!stack.isEmpty() && stack.peek() <= arr[i]) {
+                stack.pop();
+            }
+
+            // if stack empty → no greater element
+            result[i] = stack.isEmpty() ? -1 : stack.peek();
+
+            // push current element
+            stack.push(arr[i]);
         }
-    sc.close();
+
+        System.out.println(Arrays.toString(result));
     }
 
 

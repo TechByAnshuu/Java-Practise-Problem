@@ -1,6 +1,4 @@
-import java.util.Scanner;
-public class Practice {
-    // public static void main(String[] args){
+// public static void main(String[] args){
     //     Scanner sc = new Scanner(System.in);
     //     System.out.println("Enterd the name: " );
     //     String name = sc.nextLine();
@@ -98,66 +96,65 @@ public class Practice {
 
     // import java.util.Scanner;
 
-class Node {
-    int data;
-    Node next;
+// class Node {
+//     int data;
+//     Node next;
 
-    Node(int d) {
-        data = d;
-        next = null;
-    }
+//     Node(int d) {
+//         data = d;
+//         next = null;
+//     }
 
-    static Node insertAtPosition(Node head, int pos, int d) {
-        Node newNode = new Node(d);
+//     static Node insertAtPosition(Node head, int pos, int d) {
+//         Node newNode = new Node(d);
 
-        if (pos == 1) {
-            newNode.next = head;
-            return newNode;
-        }
+//         if (pos == 1) {
+//             newNode.next = head;
+//             return newNode;
+//         }
 
-        Node temp = head;
+//         Node temp = head;
 
-        for (int i = 1; i < pos - 1 && temp != null; i++) {
-            temp = temp.next;
-        }
+//         for (int i = 1; i < pos - 1 && temp != null; i++) {
+//             temp = temp.next;
+//         }
 
-        if (temp == null) return head;
+//         if (temp == null) return head;
 
-        newNode.next = temp.next;
-        temp.next = newNode;
+//         newNode.next = temp.next;
+//         temp.next = newNode;
 
-        return head;
-    }
+//         return head;
+//     }
 
-    static void print(Node head) {
-        Node temp = head;
-        while (temp != null) {
-            System.out.print(temp.data + " ");
-            temp = temp.next;
-        }
-    }
+//     static void print(Node head) {
+//         Node temp = head;
+//         while (temp != null) {
+//             System.out.print(temp.data + " ");
+//             temp = temp.next;
+//         }
+//     }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Node head = null;
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         Node head = null;
 
-        int n = sc.nextInt();
+//         int n = sc.nextInt();
 
-        for (int i = 0; i < n; i++) {
-            int val = sc.nextInt();
-            int pos = sc.nextInt();
-            head = insertAtPosition(head, pos, val);
-        }
+//         for (int i = 0; i < n; i++) {
+//             int val = sc.nextInt();
+//             int pos = sc.nextInt();
+//             head = insertAtPosition(head, pos, val);
+//         }
 
-        print(head);
-        sc.close();
-    }
+//         print(head);
+//         sc.close();
+//     }
+// }
+
+
+
+
+
 }
-
-
-    
-}
-
-
-
  
