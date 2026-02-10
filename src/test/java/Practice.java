@@ -49,6 +49,36 @@ public class Practice {
         System.out.println(Arrays.toString(result));
     }
 
+// another method do with suppose the array are reolace to th  -1 and then compre with the values of array with 
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int[] arr = {4, 8, 2, 5, 1, 2};
+        int n = arr.length;
+
+        int[] result = new int[n];
+
+        // Step 1: fill with -1
+        Arrays.fill(result, -1);
+
+        // Step 2: compare with right side
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] > arr[i]) {
+                    result[i] = arr[j];
+                    break; // stop at first greater
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(result));
+    }
+}
+
+
 
 
 }
