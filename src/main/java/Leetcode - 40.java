@@ -53,77 +53,114 @@
 
 
 class Solution {
-    public int longestBalanced(String s) {
-        char[] cs = s.toCharArray();
-        int x = calc1(cs);
-        int y = Math.max(calc2(cs, 'a', 'b'), Math.max(calc2(cs, 'b', 'c'), calc2(cs, 'a', 'c')));
-        int z = calc3(cs);
-        return Math.max(x, Math.max(y, z));
+
+    static class Node {
+        int l, r;
+        int mn, mx; 
+        int lazy; 
     }
 
-    private int calc1(char[] s) {
-        int res = 0;
-        int i = 0, n = s.length;
-        while (i < n) {
-            int j = i + 1;
-            while (j < n && s[j] == s[i]) {
-                j++;
+
+    static class SegmentTree {
+        Node[] tr;
+
+        SegmentTree(int n) {
+            tr = new Node[n << 2];
+            for (int i = 0; i < tr.length; i++) {
+                tr[i] = new Node();
             }
-            res = Math.max(res, j - i);
-            i = j;
+            build(1, 0, n);
         }
-        return res;
-    }
 
-    private int calc2(char[] s, char a, char b) {
-        int res = 0;
-        int i = 0, n = s.length;
-        while (i < n) {
-            while (i < n && s[i] != a && s[i] != b) {
-                i++;
+        void build(int u, int l, int r) {
+            tr[u].l = l;
+            tr[u].r = r;
+            tr[u].mn = tr[u].mx = 0;
+            tr[u].lazy = 0;
+            if (l == r) return;
+            int mid = (l + r) >> 1;
+            build(u << 1, l, mid);
+            build(u << 1 | 1, mid + 1, r);
+        }
+
+
+        void modify(int u, int l, int r, int v) {
+            if (tr[u].l >= l && tr[u].r <= r) {
+                apply(u, v);
+                return;
             }
-            Map<Integer, Integer> pos = new HashMap<>();
-            pos.put(0, i - 1);
-            int d = 0;
-            while (i < n && (s[i] == a || s[i] == b)) {
-                d += (s[i] == a) ? 1 : -1;
-                Integer prev = pos.get(d);
-                if (prev != null) {
-                    res = Math.max(res, i - prev);
-                } else {
-                    pos.put(d, i);
-                }
-                i++;
+            pushdown(u);
+            int mid = (tr[u].l + tr[u].r) >> 1;
+            if (l <= mid) modify(u << 1, l, r, v);
+            if (r > mid) modify(u << 1 | 1, l, r, v);
+            pushup(u);
+        }
+
+        int query(int u, int target) {
+            if (tr[u].l == tr[u].r) {
+                return tr[u].l;
+            }
+            pushdown(u);
+            int left = u << 1;
+            int right = u << 1 | 1;
+            if (tr[left].mn <= target && target <= tr[left].mx) {
+                return query(left, target);
+            }
+            return query(right, target);
+        }
+
+
+        void apply(int u, int v) {
+            tr[u].mn += v;
+            tr[u].mx += v;
+            tr[u].lazy += v;
+        }
+
+
+        void pushup(int u) {
+            tr[u].mn = Math.min(tr[u << 1].mn, tr[u << 1 | 1].mn);
+            tr[u].mx = Math.max(tr[u << 1].mx, tr[u << 1 | 1].mx);
+        }
+
+
+        void pushdown(int u) {
+            if (tr[u].lazy != 0) {
+                apply(u << 1, tr[u].lazy);
+                apply(u << 1 | 1, tr[u].lazy);
+                tr[u].lazy = 0;
             }
         }
-        return res;
     }
 
-    private int calc3(char[] s) {
-        Map<Long, Integer> pos = new HashMap<>();
-        pos.put(f(0, 0), -1);
+    public int longestBalanced(int[] nums) {
+        int n = nums.length;
+        SegmentTree st = new SegmentTree(n);
 
-        int[] cnt = new int[3];
-        int res = 0;
 
-        for (int i = 0; i < s.length; i++) {
-            char c = s[i];
-            ++cnt[c - 'a'];
-            int x = cnt[0] - cnt[1];
-            int y = cnt[1] - cnt[2];
-            long k = f(x, y);
+        Map<Integer, Integer> last = new HashMap<>();
 
-            Integer prev = pos.get(k);
-            if (prev != null) {
-                res = Math.max(res, i - prev);
-            } else {
-                pos.put(k, i);
+        int now = 0; 
+        int ans = 0; 
+
+
+        for (int i = 1; i <= n; i++) {
+            int x = nums[i - 1];
+            int det = (x & 1) == 1 ? 1 : -1;
+
+            if (last.containsKey(x)) {
+                st.modify(1, last.get(x), n, -det);
+                now -= det;
             }
-        }
-        return res;
-    }
 
-    private long f(int x, int y) {
-        return (x + 100000) << 20 | (y + 100000);
+
+            last.put(x, i);
+            st.modify(1, i, n, det);
+            now += det;
+
+            int pos = st.query(1, now);
+            ans = Math.max(ans, i - pos);
+        }
+
+        return ans;
     }
 }
